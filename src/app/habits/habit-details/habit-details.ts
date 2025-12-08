@@ -1,6 +1,6 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Habit, HabitService } from '../../services/habit';
 import { Completion, CompletionService } from '../../services/completions';
 
@@ -17,6 +17,7 @@ import { Completion, CompletionService } from '../../services/completions';
       <ul>
         <li *ngFor="let c of completions()">{{ c.dateOfCompletion }}</li>
       </ul>
+      <button (click)="deleteHabit()">delete habit</button>
     </div>
     <ng-template #loading>
       <p>Loading habit...</p>
@@ -31,7 +32,8 @@ export class HabitDetails implements OnInit {
   constructor(
     private habitService: HabitService,
     private route: ActivatedRoute,
-    private completionService: CompletionService
+    private completionService: CompletionService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -47,6 +49,13 @@ export class HabitDetails implements OnInit {
     this.habitService.getHabit(this.habitId).subscribe({
       next: habit => this.habit.set(habit),
       error: err => console.error(err)
+    });
+  }
+
+  deleteHabit() {
+    this.habitService.deleteHabit(this.habitId).subscribe({
+      next: () => this.router.navigate(['/habits']),
+      error: (err) => console.error('failed to delete habit', err)
     });
   }
 

@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+app-root {
+  min-height: 100vh;
+}
+
+app-main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+app-auth-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.title-bar {
+  width: 100%;
+  height: 10%;
+  min-height: 1cm;
+  max-height: 1.5cm;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #54b2ff;
+}
+
+.title {
+  color: white;
+  margin: clamp(0.1cm, 1.5vh, 0.25cm);
+  text-align: center;
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.footer {
+  width: 100%;
+  height: 6%;
+  min-height: 0.5cm;
+  max-height: 1cm;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #54b2ff;
+}

@@ -10,7 +10,7 @@ export interface Completion {
 
 @Injectable({ providedIn: 'root' })
 export class CompletionService {
-  private baseUrl = 'http://localhost:8080/habits'; // base habits URL
+  private baseUrl = 'http://localhost:8080/habits';
 
   constructor(private http: HttpClient) {}
 
@@ -18,7 +18,7 @@ export class CompletionService {
     return this.http.get<Completion[]>(`${this.baseUrl}/${habitId}/completions`);
   }
 
-  markCompleted(habitId: number): Observable<Completion> {
-    return this.http.post<Completion>(`${this.baseUrl}/${habitId}/completions`, {});
+  markCompleted(habitId: number): Observable<void> {
+    return this.http.post<void>(`${this.baseUrl}/${habitId}/completions`, {});
   }
 }

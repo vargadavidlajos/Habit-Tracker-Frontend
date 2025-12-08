@@ -1,0 +1,59 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 3px solid #1c8ce8;
+  border-radius: 1rem;
+  background-color: #74c0ff;
+}
+
+form > div {
+  display: flex;
+  align-items: center;
+}
+
+form label {
+  flex: 0 0 100px;
+  text-align: right;
+  font-weight:400;
+  margin-right: 1rem;
+  color: white;
+}
+
+form input {
+  flex: 1;
+  border: 2px solid #1c8ce8;
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.4rem;
+}
+
+form button {
+  align-self: center;
+  padding: 0.2rem 2rem;
+  border: 2px solid;
+  border-radius: 0.4rem;
+}
+
+form button:hover {
+  opacity: 0.8;
+}
+
+.incorrect-login > div > input {
+  border-color: red;
+  background-color: rgb(255, 220, 220);
+}
+
+span.warning {
+  color: rgb(255, 0, 0);
+  align-self: center;
+  font-weight: 400;
+  opacity: 0.8;
+}

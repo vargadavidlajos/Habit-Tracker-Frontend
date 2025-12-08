@@ -1,31 +1,27 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AuthResponse, AuthService } from '../../services/auth';
 import { Router } from '@angular/router';
 import { firstValueFrom, } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
-  template: `
-    <h2>Login</h2>
-    <form (ngSubmit)="login()">
-      <label>Username</label>
-      <input [(ngModel)]="username" name="username" required />
-
-      <label>Password</label>
-      <input [(ngModel)]="password" name="password" type="password" required />
-
-      <button type="submit">Login</button>
-    </form>
-  `
+  imports: [FormsModule, CommonModule],
+  templateUrl: './login.html',
+  styleUrls: ['./login.scss']
 })
 export class Login {
   username = '';
   password = '';
+  loginFailed = false
 
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(
+    private auth: AuthService,
+    private router: Router,
+    private cd: ChangeDetectorRef 
+  ) {}
 
   async login() {
     try {
@@ -37,11 +33,13 @@ export class Login {
       );
       console.log('Logged in, token:', token);
 
-      localStorage.setItem('token', token);
+      sessionStorage.setItem('token', token);
 
       this.router.navigate(['/habits']);
     } catch (err) {
-      console.error('Login failed', err);
+      this.loginFailed = true;
+      console.error('Login failed: ' + this.loginFailed, err);
+      this.cd.detectChanges();
     }
   }
 }

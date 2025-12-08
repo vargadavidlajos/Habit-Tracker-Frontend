@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HabitService, Habit } from '../../services/habit';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { CompletionService } from '../../services/completions';
 
 @Component({
   selector: 'app-habit-list',
@@ -13,6 +14,7 @@ import { RouterLink } from '@angular/router';
     <ul>
       <li *ngFor="let habit of habits()">
         <a [routerLink]="['/habits', habit.id]">{{ habit.habitName }}</a>
+        <button (click)="completeHabit(habit.id)">complete habit</button>
       </li>
     </ul>
   `
@@ -20,7 +22,10 @@ import { RouterLink } from '@angular/router';
 export class HabitList implements OnInit {
   habits = signal<Habit[]>([]);
 
-  constructor(private habitService: HabitService) {}
+  constructor(
+    private habitService: HabitService,
+    private completionService: CompletionService
+  ) {}
 
   ngOnInit() {
     this.loadHabits();
@@ -31,5 +36,9 @@ export class HabitList implements OnInit {
       next: (data) => this.habits.set(data),
       error: (err) => console.error('Failed to load habits', err)
     });
+  }
+
+  completeHabit(habitId: number) {
+    this.completionService.markCompleted(habitId).subscribe();
   }
 }
