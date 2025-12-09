@@ -13,6 +13,9 @@ export class MainLayout {
     sessionStorage.removeItem('token');
     window.location.href = '/login';
   }
+  toHabits() {
+    window.location.href = '/habits';
+  }
   toCreate() {
     window.location.href = '/habits/new';
   }

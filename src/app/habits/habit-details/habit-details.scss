@@ -1,0 +1,76 @@
+h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+h3 {
+  margin: 0.5rem 0;
+}
+
+.streak {
+  margin: 0 0.5rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.completion-history {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #74c0ff;
+  padding: 1rem;
+  border: 3px solid #1c8ce8;
+  border-radius: 1rem;
+}
+
+table {
+  width: 100%;
+  max-width: 30rem;
+  align-self: center;
+  margin-top: 2rem;
+  table-layout: fixed;
+}
+
+td {
+  border: 3px solid #1c8ce8;
+  border-radius: 1rem;
+  background-color: white;
+  height: 1rem;
+}
+
+td.completed {
+  background-color: #00C700;
+}
+
+.bottom-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.delete {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+
+  font-weight: bold;
+  font-size: 1rem;
+
+  color: rgb(107, 0, 0);
+  background-color: #ff7474;
+  border: 3px solid #e82a1c;
+  border-radius: 1rem;
+}
+
+.edit {
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+
+  font-weight: bold;
+  font-size: 1rem;
+
+  color: white;
+  background-color: #74c0ff;
+  border: 3px solid #1c8ce8;
+  border-radius: 1rem;
+}

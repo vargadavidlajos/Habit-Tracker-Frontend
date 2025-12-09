@@ -1,0 +1,80 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 3px solid #1c8ce8;
+  border-radius: 1rem;
+  background-color: #74c0ff;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form label {
+  align-self: flex-start;
+  text-align: left;
+  font-size: 1.2rem;
+  font-weight:500;
+  margin: 0.5rem;
+  color: white;
+}
+
+input, textarea {
+  width: 20rem;
+  border: 3px solid #1c8ce8;
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.4rem;
+  outline: none;
+
+  &:focus {
+    border: 3px solid rgb(0, 81, 255);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+.warning + input,
+.warning + textarea {
+  border-color: red;
+  background-color: rgb(255, 220, 220);
+  box-shadow: 0 2px 2px rgb(255, 113, 127);
+}
+
+form button {
+  align-self: flex-end;
+  margin-top: 0.5rem;
+  padding: 0.2rem 2rem;
+  border: 2px solid;
+  border-radius: 0.4rem;
+}
+
+form button:hover {
+  opacity: 0.8;
+}
+
+span.warning {
+  color: rgb(255, 0, 0);
+  align-self: center;
+  font-weight: 400;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}

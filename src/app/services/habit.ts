@@ -34,6 +34,10 @@ export class HabitService {
     return this.http.post<Habit>(this.baseUrl, habit);
   }
 
+  updateHabit(habit: HabitCreateDto, id: number): Observable<Habit> {
+    return this.http.put<Habit>(`${this.baseUrl}/${id}`, habit);
+  }
+
   deleteHabit(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }

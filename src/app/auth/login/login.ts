@@ -39,7 +39,12 @@ export class Login {
     } catch (err) {
       this.loginFailed = true;
       console.error('Login failed: ' + this.loginFailed, err);
+      this.password = '';
       this.cd.detectChanges();
     }
+  }
+
+  toRegistration() {
+    this.router.navigate(['/register']);
   }
 }

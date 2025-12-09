@@ -1,1 +1,13 @@
-<p>habit-list works!</p>
+<div *ngIf="habits().length > 0">
+  <h2>Your Habits</h2>
+  <div class="habit-list">
+    <div *ngFor="let habit of habits(); let habitNr = index" class="habit">
+      <button [routerLink]="['/habits', habit.id]" class="habit-button">
+        <span>{{ habit.habitName }}</span>
+      </button>
+      <button (click)="completeHabit(habit.id, habitNr)" class="completion-button" [ngClass]="{'complete': completions[habitNr]}"></button>
+    </div>
+  </div>
+</div>
+
+<p class="noHabits" *ngIf="noHabits">No saved habits yet...</p>

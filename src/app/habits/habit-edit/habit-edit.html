@@ -1,7 +1,7 @@
-<h2 class="create-title">Create New Habit</h2>
-<form (ngSubmit)="createHabit()">
+<h2 class="create-title">Edit Habit</h2>
+<form (ngSubmit)="updateHabit()">
   <div>
-    <label>Habit Name</label>
+    <label>Name</label>
     <span *ngIf="!allowedName" class="warning">{{ nameError }}</span>
     <input [(ngModel)]="habitName" name="habitName" required>
   </div>
@@ -12,5 +12,8 @@
     <textarea [(ngModel)]="description" rows="6" name="description"></textarea>
   </div>
 
-  <button type="submit">Create</button>
+  <div class="bottom-buttons">
+    <button (click)="toHabitDetails()">Back</button>
+    <button type="submit">Save</button>
+  </div>
 </form>

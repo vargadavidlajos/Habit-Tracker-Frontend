@@ -7,10 +7,10 @@
 }
 
 .create-habit-button:hover {
-  opacity: 0.8;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-.logout-button {
+.footer-button {
   font-size: clamp(0.3cm, 3vh, 0.45cm);
   margin: 0 clamp(0.1cm, 1.5vh, 0.25cm);
   color: white;
@@ -19,6 +19,6 @@
   user-select: none;
 }
 
-.logout-button:hover {
-  opacity: 0.8;
+.footer-button:hover {
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
 }

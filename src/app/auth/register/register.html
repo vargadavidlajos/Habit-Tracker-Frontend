@@ -1,1 +1,17 @@
-<p>register works!</p>
+  <h2 class="auth-title">Register</h2>
+  <form (ngSubmit)="register()">
+    <span *ngIf="!allowedUsername" class="warning">{{ usernameError }}</span>
+    <div>
+      <label>Username</label>
+      <input [(ngModel)]="username" name="username" required />
+    </div>
+
+    <span *ngIf="!allowedPassword" class="warning">{{ passwordError }}</span>
+    <div>
+      <label>Password</label>
+      <input [(ngModel)]="password" name="password" type="password" required />
+    </div>
+
+    <button type="submit">Register</button>
+    <a (click)="toLogin()" class="login-link">Already have an account?</a>
+  </form>

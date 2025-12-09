@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+h2 {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -30,7 +35,7 @@ form label {
 
 form input {
   flex: 1;
-  border: 2px solid #1c8ce8;
+  border: 3px solid #1c8ce8;
   padding: 0.2rem 0.3rem;
   border-radius: 0.4rem;
 }
@@ -49,11 +54,24 @@ form button:hover {
 .incorrect-login > div > input {
   border-color: red;
   background-color: rgb(255, 220, 220);
+  box-shadow: 0 0 2px rgb(255, 113, 127);
 }
 
 span.warning {
   color: rgb(255, 0, 0);
   align-self: center;
   font-weight: 400;
+  opacity: 0.8;
+}
+
+.register-link {
+  cursor: pointer;
+  font-size: 0.9rem;
+  align-self: flex-end;
+  text-decoration: underline;
+  color: blue;
+}
+
+.register-link:hover {
   opacity: 0.8;
 }

@@ -7,6 +7,7 @@ import { HabitDetails } from './habits/habit-details/habit-details';
 import { HabitCreate } from './habits/habit-create/habit-create';
 import { AuthLayout } from './layouts/auth-layout/auth-layout';
 import { MainLayout } from './layouts/main-layout/main-layout';
+import { HabitEdit } from './habits/habit-edit/habit-edit';
 
 export const routes: Routes = [
   {
@@ -24,7 +25,8 @@ export const routes: Routes = [
     children: [
       { path: 'habits', component: HabitList },
       { path: 'habits/new', component: HabitCreate },
-      { path: 'habits/:id', component: HabitDetails }
+      { path: 'habits/:id', component: HabitDetails },
+      { path: 'habits/:id/edit', component: HabitEdit }
     ]
   }
 ];

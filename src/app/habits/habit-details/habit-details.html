@@ -1,1 +1,45 @@
-<p>habit-details works!</p>
+<div *ngIf="habit as h">
+  <h2>{{ h.habitName }}</h2>
+  <p>{{ h.habitDescription }}</p>
+  <h3>Completion history</h3>
+  <div class="completion-history">
+    <p class="streak">Streak: {{ streak }}</p>
+    <table>
+      <thead>
+        <tr>
+          <th>{{ days[0] }}</th>
+          <th>{{ days[1] }}</th>
+          <th>{{ days[2] }}</th>
+          <th>{{ days[3] }}</th>
+          <th>{{ days[4] }}</th>
+          <th>{{ days[5] }}</th>
+          <th>{{ days[6] }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td [ngClass]="{'completed': completed[6]}"></td>
+          <td [ngClass]="{'completed': completed[5]}"></td>
+          <td [ngClass]="{'completed': completed[4]}"></td>
+          <td [ngClass]="{'completed': completed[3]}"></td>
+          <td [ngClass]="{'completed': completed[2]}"></td>
+          <td [ngClass]="{'completed': completed[1]}"></td>
+          <td [ngClass]="{'completed': completed[0]}"></td>
+        </tr>
+        <tr>
+          <td [ngClass]="{'completed': completed[13]}"></td>
+          <td [ngClass]="{'completed': completed[12]}"></td>
+          <td [ngClass]="{'completed': completed[11]}"></td>
+          <td [ngClass]="{'completed': completed[10]}"></td>
+          <td [ngClass]="{'completed': completed[9]}"></td>
+          <td [ngClass]="{'completed': completed[8]}"></td>
+          <td [ngClass]="{'completed': completed[7]}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="bottom-buttons">
+    <button (click)="deleteHabit()" class="delete">delete habit</button>
+    <button (click)="editHabit()" class="edit">edit habit</button>
+  </div>
+</div>
